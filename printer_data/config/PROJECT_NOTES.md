@@ -1,9 +1,9 @@
 # Ender 3 Pro / Klipper — Project Notes
 
-Living record of the hardware, software, calibration results and open work for this printer.
-Last checkpoint: **2026-10-23**. This file lives in `printer_data/config/`, so klipper-backup pushes it with the config.
+Living record of the hardware, software, calibration results and open work for this printer. History: [CHANGELOG](history/CHANGELOG.md), [config snapshots](history/snapshots/), [input shaper results](history/input_shaper/2026-10-22/README.md).
+Last checkpoint: **2026-10-22**. This file lives in `printer_data/config/`, so klipper-backup pushes it with the config.
 
-> ⚠️ **Before the next print:** the nozzle was removed and re-tightened on 2026-10-23. The saved Z-offset is no longer valid. Redo `PROBE_CALIBRATE` (see [Calibration procedure](#calibration-procedure)).
+> ⚠️ **Before the next print:** the nozzle was removed and re-tightened on 2026-10-22. The saved Z-offset is no longer valid. Redo `PROBE_CALIBRATE` (see [Calibration procedure](#calibration-procedure)).
 
 ---
 
@@ -85,12 +85,12 @@ These live on the Pi in `~/firmware/`; see `~/firmware/README.txt` for details.
 |---|---|---|
 | Hotend PID | Kp 12.870, Ki 0.943, Kd 43.920 | 2026-10-22, tuned at 225 °C with the part fan off. Previously 21.609 / 1.533 / 76.170, which predates the 60 W heater. |
 | Bed PID | Kp 61.059, Ki 1.938, Kd 480.838 | 2026-10-22, tuned at 55 °C. Previously 54.027 / 0.770 / 948.182. |
-| Input shaper X | `2hump_ei` @ 114.4 Hz | 2026-10-23. Resonance peaks at 67 Hz and 108 Hz. Previously mzv @ 78. |
-| Input shaper Y | `ei` @ 47.0 Hz | 2026-10-23. Sensor taped to the bed; two runs agreed (47.0 and 49.4 Hz). Previously mzv @ 29.4, which was wrong. |
-| `max_accel` | 4000 mm/s² | 2026-10-23, the Y-shaper limit. Previously 8000. |
+| Input shaper X | `2hump_ei` @ 114.4 Hz | 2026-10-22. Resonance peaks at 67 Hz and 108 Hz. Previously mzv @ 78. |
+| Input shaper Y | `ei` @ 47.0 Hz | 2026-10-22. Sensor taped to the bed; two runs agreed (47.0 and 49.4 Hz). Previously mzv @ 29.4, which was wrong. |
+| `max_accel` | 4000 mm/s² | 2026-10-22, the Y-shaper limit. Previously 8000. |
 | `max_velocity` | 400 mm/s | |
 | Extruder `rotation_distance` | 29.172 | |
-| BLTouch `z_offset` | ~~0.140~~ **must be redone** | The nozzle was reinstalled 2026-10-23. |
+| BLTouch `z_offset` | ~~0.140~~ **must be redone** | The nozzle was reinstalled 2026-10-22. |
 | Pressure advance | Set by the Orca filament profile (`SET_PRESSURE_ADVANCE ADVANCE=0.4`) | 0.4 is plausible for Bowden; to be re-tested. |
 | Firmware retraction | 1.4 mm @ 20 mm/s | Plan is to move retraction into Orca (see §6). |
 | TMC2209 currents | X/Y/Z 0.58 A, E 0.65 A; stealthChop on all | |
@@ -182,7 +182,7 @@ Printer profile: **"(Kevins)Creality Ender-3 Pro 0.4 nozzle (accel and speed)"**
 
 ## 7. Incidents and lessons learned
 
-- **2026-10-23, nozzle crashed into the bed during G28.**
+- **2026-10-22, nozzle crashed into the bed during G28.**
   - The accelerometer had been mounted *between the nozzle and the heater block* with two silicone washers. That lowered the nozzle about 3–4 mm below the BLTouch trigger point, so the nozzle hit the bed before the probe triggered.
   - The mainboard dropped off USB and needed a power cycle, a Klipper restart and a `FIRMWARE_RESTART`. No damage was found.
   - **Rule:** never home Z with the sensor on the nozzle. Either mount it on the toolhead above the nozzle tip, or home only X and Y and use `SET_KINEMATIC_POSITION Z=0`. That needs a temporary `[force_move] enable_force_move: True`; remove it afterwards.
