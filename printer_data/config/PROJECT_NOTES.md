@@ -195,8 +195,10 @@ Printer profile: **"(Kevins)Creality Ender-3 Pro 0.4 nozzle (accel and speed)"**
 
 ## 8. Open to-do list
 
-- [ ] Bed screws adjust and screws tilt calculate (user at the printer)
-- [ ] `PROBE_ACCURACY`, then `PROBE_CALIBRATE` with the 0.10 mm gauge. **Required before any print.**
+- [x] Screws tilt calculate: 4 rounds, 0.24 → 0.02 mm, all screws within 00:02 (2026-10-22)
+- [x] `PROBE_ACCURACY`: 10 samples, range 0.0025 mm, stdev 0.001 (2026-10-22)
+- [ ] **NEXT:** `PROBE_CALIBRATE` with the 0.10 mm gauge (bed at 55 °C after a soak, nozzle at 150 °C and wiped). Then an optional `BED_SCREWS_ADJUST` gauge check.
+- [ ] Z-offset (above) is **required before any print**
 - [ ] Blower stall test, then set `[fan] off_below` and `kick_start_time`
 - [ ] Orca: heat the bed before meshing (or use `START_PRINT`), turn off firmware retraction, set max volumetric speed to about 10
 - [ ] Orca PLA calibration: temperature, max flow, flow ratio, PA, retraction

@@ -11,7 +11,7 @@ Klipper configuration and calibration history for a heavily modified **Creality 
 | Backups | ✅ Working again (repaired 2026-10-22) |
 | PID (hotend and bed) | ✅ Tuned 2026-10-22 |
 | Input shaping | ✅ X 2hump_ei @ 114.4 Hz, Y ei @ 47.0 Hz; `max_accel` 4000 |
-| Bed level (screws tilt) | 🔄 In progress |
+| Bed level (screws tilt) | ✅ Trammed 2026-10-22 to 0.02 mm. Probe repeatability 0.0025 mm range. |
 | Z-offset | ⚠️ **Needs recalibration.** The nozzle was reinstalled. Do not print until it's redone. |
 | Part-fan tuning | ⏳ To do: blower stall point, `off_below` / `kick_start_time` |
 | OrcaSlicer calibration | ⏳ To do: temperature, max flow, flow ratio, PA, retraction (PLA, then ASA) |

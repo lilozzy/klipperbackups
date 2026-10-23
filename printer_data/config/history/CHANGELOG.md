@@ -18,3 +18,8 @@ Times are the Pi's local time. Every config edit is also in the git history, thr
 - **Snapshot `05_shaper-saved`:** input shaper X 2hump_ei @ 114.4 Hz, Y ei @ 47.0 Hz.
 - **Current `printer.cfg`:** `max_accel` 8000 → 4000, `[force_move]` removed, `lis2dw.cfg` include commented out again.
 - **Nozzle:** reinstalled and hot-tightened. The Z-offset is **pending recalibration**.
+- **Bed leveling, safer order:** because the Z-offset is invalid, `SCREWS_TILT_CALCULATE` was run before `BED_SCREWS_ADJUST`.
+  - Bed soaked at 55 °C for 5 minutes.
+  - 4 rounds: worst corner 0.24 → 0.16 → 0.065 → 0.02 mm.
+- **`PROBE_ACCURACY` at the bed center:** range 0.0025 mm, stdev 0.001 mm.
+- **Checkpoint:** stopped before `PROBE_CALIBRATE`.
