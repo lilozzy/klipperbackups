@@ -3,7 +3,9 @@ secrets.conf
 *.swp
 *.tmp
 printer-[0-9]*_[0-9]*.cfg
+lis2dw.cfg.20261023.bak
 moonraker.conf.20261022.bak
+printer.cfg.20261023-preaccel.bak
 *.bkp
 *.csv
 *.zip
